@@ -1,20 +1,16 @@
 import type { GraphQLOptions, HttpQueryError } from "apollo-server-core";
 import { runHttpQuery } from "apollo-server-core";
-import type {RequestEvent} from "@sveltejs/kit/types/hooks"
+import type { RequestEvent } from "@sveltejs/kit/types/hooks";
 import { Headers, Request as ApolloRequest } from "apollo-server-env";
 import { ApolloServerBase } from "apollo-server-core";
-import type {RequestHandler} from "@sveltejs/kit"
+import type { RequestHandler } from "@sveltejs/kit";
 
 export class ApolloServer extends ApolloServerBase {
-  async createGraphQLServerOptions(
-    req: RequestEvent
-  ): Promise<GraphQLOptions> {
+  async createGraphQLServerOptions(req: RequestEvent): Promise<GraphQLOptions> {
     return await super.graphQLServerOptions({ req });
   }
 
-  public handleRequest: RequestHandler = (req) => {
-
-    new Headers({});
+  public handleRequest: RequestHandler = async (req) => {
     const acceptedTypes = (new Headers(req.request.headers).get("Accept") || "")
       .toLowerCase()
       .split(",");
@@ -37,8 +33,8 @@ export class ApolloServer extends ApolloServerBase {
       method: req.request.method,
       options: () => this.createGraphQLServerOptions(req),
       query:
-      req.request.method == "POST"
-          ? (req.request.body as any)
+        req.request.method == "POST"
+          ? await req.request.json()
           : req.url.searchParams.get("query")
           ? {
               query: req.url.searchParams.get("query"),
