@@ -1,7 +1,10 @@
 import type { GraphQLOptions, HttpQueryError } from "apollo-server-core";
 import { runHttpQuery } from "apollo-server-core";
 import type { RequestEvent } from "@sveltejs/kit/types/hooks";
-import { Headers, Request as ApolloRequest } from "apollo-server-env";
+import {
+  Headers as ApolloHeaders,
+  type Request as ApolloRequest,
+} from "apollo-server-env";
 import { ApolloServerBase } from "apollo-server-core";
 import type { RequestHandler } from "@sveltejs/kit";
 
@@ -11,7 +14,10 @@ export class ApolloServer extends ApolloServerBase {
   }
 
   public handleRequest: RequestHandler = async (req) => {
-    const acceptedTypes = (new Headers(req.request.headers).get("Accept") || "")
+    let headersObject: HeadersInit = {};
+    req.request.headers.forEach((value, key) => (headersObject[key] = value));
+
+    const acceptedTypes = (req.request.headers.get("Accept") || "")
       .toLowerCase()
       .split(",");
     const landingPage = this.getLandingPage();
@@ -45,7 +51,7 @@ export class ApolloServer extends ApolloServerBase {
           : null,
       request: {
         url: req.url.pathname,
-        headers: new Headers(req.request.headers),
+        headers: new ApolloHeaders(headersObject),
         method: req.request.method,
       } as ApolloRequest,
     }).then(

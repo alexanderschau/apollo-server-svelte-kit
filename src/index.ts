@@ -1,6 +1,6 @@
 export {
-  GraphQLOptions,
-  Config,
+  type GraphQLOptions,
+  type Config,
   gql,
   // Errors
   ApolloError,
