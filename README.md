@@ -2,7 +2,7 @@
 
 An Apollo GraphQL Server integration for SvelteKit 🥳.
 
-> **Note**: Package versions are equivalent to [apollo-server-core](https://www.npmjs.com/package/apollo-server-core).
+> **Note**: Major and minor releases are equivalent to [apollo-server-core](https://www.npmjs.com/package/apollo-server-core).
 
 ## Usage
 
