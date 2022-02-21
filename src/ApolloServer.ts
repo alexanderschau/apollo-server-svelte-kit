@@ -24,6 +24,7 @@ export class ApolloServer extends ApolloServerBase {
     if (
       landingPage &&
       req.request.method === "GET" &&
+      !req.url.searchParams.get("query") &&
       acceptedTypes.includes("text/html")
     ) {
       return {
