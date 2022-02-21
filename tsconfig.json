@@ -5,7 +5,6 @@
     "lib": ["es2020", "DOM"],
     "target": "es2020",
     "outDir": "dist",
-    "preserveValueImports": true,
     "isolatedModules": true,
     "resolveJsonModule": true,
     "sourceMap": true,
