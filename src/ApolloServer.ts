@@ -1,6 +1,6 @@
 import type { GraphQLOptions, HttpQueryError } from "apollo-server-core";
 import { runHttpQuery } from "apollo-server-core";
-import type { RequestEvent } from "@sveltejs/kit/types/hooks";
+import type { RequestEvent } from "@sveltejs/kit/types/internal";
 import {
   Headers as ApolloHeaders,
   type Request as ApolloRequest,
