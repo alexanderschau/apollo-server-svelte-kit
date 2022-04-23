@@ -1,6 +1,6 @@
 {
   "name": "apollo-server-svelte-kit",
-  "version": "3.6.6",
+  "version": "3.6.7",
   "description": "Production-ready Node.js GraphQL server for SvelteKit",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/alexanderschau/apollo-server-svelte-kit#readme",
   "dependencies": {
-    "@types/node": "^17.0.23",
+    "@types/node": "^17.0.25",
     "apollo-server-core": "^3.6.7",
     "apollo-server-env": "^4.2.1"
   },
@@ -39,7 +39,7 @@
     "graphql": "^15.3.0 || ^16.0.0"
   },
   "devDependencies": {
-    "@sveltejs/kit": "1.0.0-next.310",
+    "@sveltejs/kit": "1.0.0-next.320",
     "estree-walker": "^3.0.1",
     "graphql": "^16.3.0",
     "prettier": "^2.6.2",
