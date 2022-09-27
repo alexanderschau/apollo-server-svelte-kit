@@ -9,8 +9,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: "16.x"
-          registry-url: "https://registry.npmjs.com/"
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.com/'
       - run: yarn
       - run: yarn build
       - run: yarn publish

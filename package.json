@@ -1,49 +1,37 @@
 {
-  "name": "apollo-server-svelte-kit",
-  "version": "3.9.0",
-  "description": "Production-ready Node.js GraphQL server for SvelteKit",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist/**/*"
-  ],
-  "scripts": {
-    "build": "tsc",
-    "format": "prettier -w ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/alexanderschau/apollo-server-svelte-kit"
-  },
-  "keywords": [
-    "GraphQL",
-    "Apollo",
-    "Server",
-    "Svelte",
-    "Sveltekit",
-    "Javascript"
-  ],
-  "author": "Alexander Schau <alexander@schau.email>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/alexanderschau/apollo-server-svelte-kit/issues"
-  },
-  "homepage": "https://github.com/alexanderschau/apollo-server-svelte-kit#readme",
-  "dependencies": {
-    "@types/node": "^18.0.0",
-    "apollo-server-core": "^3.9.0",
-    "apollo-server-env": "^4.2.1"
-  },
-  "peerDependencies": {
-    "@sveltejs/kit": "*",
-    "graphql": "^15.3.0 || ^16.0.0"
-  },
-  "devDependencies": {
-    "@sveltejs/kit": "1.0.0-next.350",
-    "estree-walker": "^3.0.1",
-    "graphql": "^16.5.0",
-    "prettier": "^2.7.1",
-    "svelte": "^3.48.0",
-    "typescript": "^4.7.3"
-  }
+	"name": "apollo-server-svelte-kit",
+	"version": "3.10.0-beta.0",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "svelte-kit sync && svelte-package",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"lint": "prettier --plugin-search-dir . --check . && eslint .",
+		"format": "prettier --plugin-search-dir . --write ."
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "next",
+		"@sveltejs/kit": "next",
+		"@sveltejs/package": "next",
+		"@typescript-eslint/eslint-plugin": "^5.27.0",
+		"@typescript-eslint/parser": "^5.27.0",
+		"apollo-server-cloudflare": "^3.10.2",
+		"eslint": "^8.16.0",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-svelte3": "^4.0.0",
+		"graphql": "^16.6.0",
+		"prettier": "^2.6.2",
+		"prettier-plugin-svelte": "^2.7.0",
+		"svelte": "^3.44.0",
+		"svelte-check": "^2.7.1",
+		"svelte-preprocess": "^4.10.6",
+		"tslib": "^2.3.1",
+		"typescript": "^4.7.4",
+		"vite": "^3.1.0"
+	},
+	"type": "module",
+	"dependencies": {
+		"apollo-server-core": "^3.10.2",
+		"apollo-server-env": "^4.2.1"
+	}
 }
