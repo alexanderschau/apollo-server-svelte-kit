@@ -18,33 +18,27 @@ or
 yarn add apollo-server-svelte-kit graphql
 ```
 
-Then create an SvelteKit Endpoint (e.g. `src/routes/graphql.js`) and add the following content:
+Then create an SvelteKit Endpoint (e.g. `src/routes/graphql/+server.js`) and add the following content:
 
 ```js
-import { gql, ApolloServer } from 'apollo-server-svelte-kit';
+import { getDefaultHandler, gql } from '$lib';
 
-const handler = async (req) => {
-	const apolloServer = new ApolloServer({
-		typeDefs: gql`
-			type Query {
-				ping: String!
-			}
-		`,
-		resolvers: {
-			Query: {
-				ping: () => 'pong'
-			}
+const handler = getDefaultHandler(
+	gql`
+		type Query {
+			ping: String!
 		}
-	});
-	await apolloServer.start();
-	const resp = await apolloServer.handleRequest(req);
-	apolloServer.stop();
-	return resp;
-};
+	`,
+	{
+		Query: {
+			ping: () => 'pong'
+		}
+	}
+);
 
-export const head = handler;
-export const get = handler;
-export const post = handler;
+export const GET = handler;
+export const HEAD = handler;
+export const POST = handler;
 ```
 
 For more details take a look at the [Apollo Documentation](https://www.apollographql.com/docs/apollo-server/getting-started/).
