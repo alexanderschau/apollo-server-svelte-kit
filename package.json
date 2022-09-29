@@ -1,6 +1,6 @@
 {
 	"name": "apollo-server-svelte-kit",
-	"version": "3.10.0-beta.3",
+	"version": "3.10.0",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "svelte-kit sync && svelte-package",
