@@ -14,6 +14,6 @@ export {
 	UserInputError
 } from 'apollo-server-core';
 
-export { ApolloServer } from './ApolloServer';
+export { ApolloServer } from './apolloServer.js';
 
-export { getDefaultHandler } from './defaultHandler';
+export { getDefaultHandler } from './defaultHandler.js';

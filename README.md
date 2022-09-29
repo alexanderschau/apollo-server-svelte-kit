@@ -21,7 +21,7 @@ yarn add apollo-server-svelte-kit graphql
 Then create an SvelteKit Endpoint (e.g. `src/routes/graphql/+server.js`) and add the following content:
 
 ```js
-import { getDefaultHandler, gql } from '$lib';
+import { getDefaultHandler, gql } from 'apollo-server-svelte-kit';
 
 const handler = getDefaultHandler(
 	gql`

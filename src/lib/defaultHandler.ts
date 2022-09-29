@@ -1,5 +1,5 @@
 import type { RequestHandler } from '@sveltejs/kit';
-import { ApolloServer, gql } from './index';
+import { ApolloServer } from './apolloServer.js';
 import type { DocumentNode } from 'graphql';
 
 export const getDefaultHandler = (typeDefs: DocumentNode, resolvers: any) => {
